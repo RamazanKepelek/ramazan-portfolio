@@ -1,0 +1,615 @@
+/* ================================================================
+   style.css — Kod Editörü Temalı Tasarım Sistemi
+   ================================================================
+   Bu proje bir YAZILIM ÖĞRENCİSİNİN portfolyosu olduğu için, tasarımı
+   bilinçli olarak "kod editörü" dünyasından ilham alarak kurduk:
+   koyu zeminler, syntax-highlight renkleri, mono yazı tipiyle
+   yazılan etiketler, editör penceresi gibi görünen kartlar...
+
+   Bootstrap'i ezmek (override) için bu dosya Bootstrap'ten SONRA
+   yükleniyor. Aşağıdaki bölümler sırayla:
+   1. Tasarım Token'ları (renk, tipografi, gölge, boşluk ölçeği)
+   2. Genel/Temel Stiller
+   3. Navbar
+   4. Header / Hero
+   5. Bölüm Başlıkları (section-eyebrow + section-title)
+   6. Hakkımda
+   7. Yetenekler
+   8. Projeler (editör penceresi kartları)
+   9. İletişim
+   10. Footer
+   11. Erişilebilirlik (focus, reduced-motion)
+   ================================================================ */
+
+/* ================================================================
+   1) TASARIM TOKEN'LARI
+   Tüm renkleri, fontları, gölgeleri TEK bir yerde topluyoruz.
+   Böylece "vurgu rengini değiştirmek istiyorum" dediğinde tek
+   satır değiştirmen yeterli olur — sayfanın her yerinde tek tek
+   aramana gerek kalmaz.
+   ================================================================ */
+:root {
+    /* --- Koyu zeminler (navbar, hero, footer) --- */
+    --bg-dark: #0d1117;          /* ana koyu zemin */
+    --bg-dark-soft: #161b22;     /* biraz daha açık koyu zemin (kartlar, çizgiler) */
+    --border-dark: #30363d;      /* koyu zeminde ince çizgiler */
+
+    /* --- Açık zeminler (içerik bölümleri) --- */
+    --bg-light: #000000;
+    --bg-light-alt: #000000;
+    --border-light: #000000;
+
+    /* --- Vurgu renkleri (syntax-highlight ilhamlı) --- */
+    --accent-orange: #ffa657;    /* ana vurgu — butonlar, linkler, ikonlar */
+    --accent-orange-hover: #ff8a3d;
+    --accent-green: #7ee787;     /* "başarılı / tamamlandı" anlamı taşıyan yerler */
+    --accent-blue: #58a6ff;      /* ikincil linkler / bilgi */
+
+    /* --- Metin renkleri --- */
+    --text-on-dark: #e6edf3;
+    --text-on-dark-muted: #8b949e;
+    --text-on-light: #e6edf3;
+    --text-on-light-muted: #8b949e;
+
+    /* --- Tipografi --- */
+    --font-baslik: "Space Grotesk", "Segoe UI", sans-serif;
+    --font-govde: "Inter", "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+    /* --- Gölge ölçeği (her yerde aynı gölgeleri kullanmak
+           tasarımı tutarlı gösterir) --- */
+    --golge-sm: 0 1px 3px rgba(15, 18, 25, 0.08);
+    --golge-md: 0 6px 16px rgba(15, 18, 25, 0.10);
+    --golge-lg: 0 16px 40px rgba(15, 18, 25, 0.16);
+    --golge-glow: 0 0 0 3px rgba(255, 166, 87, 0.25);
+
+    /* --- Köşe yuvarlama ölçeği --- */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+
+    /* --- Geçiş (transition) süresi — tek yerden yönetmek için --- */
+    --gecis: 0.25s ease;
+}
+
+/* ================================================================
+   2) GENEL / TEMEL STİLLER
+   ================================================================ */
+body {
+    color: var(--text-on-dark);
+    background-color: var(--bg-dark);
+    font-family: var(--font-govde);
+    -webkit-font-smoothing: antialiased;
+    
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-baslik);
+}
+
+/* Tüm linklerde ve butonlarda yumuşak geçiş — "profesyonel" hissin
+   büyük kısmı aslında ani zıplamalar yerine akıcı geçişlerden gelir */
+a, .btn, .nav-link, .card, .skill-card, .social-icons a {
+    transition: color var(--gecis), background-color var(--gecis),
+                border-color var(--gecis), transform var(--gecis),
+                box-shadow var(--gecis);
+}
+
+/* ================================================================
+   3) NAVBAR
+   ================================================================ */
+.navbar {
+    background-color: rgba(13, 17, 23, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-dark);
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+}
+
+.navbar-brand {
+    font-family: var(--font-mono);
+    letter-spacing: -0.5px;
+}
+
+.text-accent {
+    color: var(--accent-orange);
+}
+
+/* Nav linklerine altı çizili "kayan" hover efekti */
+.navbar-nav .nav-link {
+    position: relative;
+    color: var(--text-on-dark-muted) !important;
+    font-weight: 500;
+    margin: 0 0.35rem;
+    padding-bottom: 4px !important;
+}
+
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-orange);
+    transition: width var(--gecis);
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--text-on-dark) !important;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Dropdown menü */
+.dropdown-menu {
+    background-color: var(--bg-dark-soft);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--golge-lg);
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.dropdown-item {
+    color: var(--text-on-dark-muted);
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: rgba(255, 166, 87, 0.12);
+    color: var(--accent-orange);
+}
+
+.dropdown-divider {
+    border-color: var(--border-dark);
+}
+
+/* Navbar arama kutusu */
+.navbar form input[type="search"] {
+    background-color: var(--bg-dark-soft);
+    border: 1px solid var(--border-dark);
+    color: var(--text-on-dark);
+    border-radius: 999px;
+    width: 150px;
+}
+
+.navbar form input[type="search"]:focus {
+    background-color: var(--bg-dark-soft);
+    color: var(--text-on-dark);
+    border-color: var(--accent-orange);
+    box-shadow: var(--golge-glow);
+}
+
+.navbar form input[type="search"]::placeholder {
+    color: var(--text-on-dark-muted);
+}
+
+/* ================================================================
+   4) HEADER / HERO
+   ================================================================ */
+.hero {
+    margin-top: 72px;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255, 166, 87, 0.10), transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(88, 166, 255, 0.10), transparent 40%),
+        var(--bg-dark);
+    color: var(--text-on-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.min-vh-90 {
+    min-height: 78vh;
+}
+
+.eyebrow {
+    font-family: var(--font-mono);
+    text-transform: none;
+    letter-spacing: 0.5px;
+    font-size: 0.95rem;
+    color: var(--accent-orange);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.hero h1 {
+    letter-spacing: -1px;
+}
+
+.hero .lead {
+    color: var(--text-on-dark-muted);
+}
+
+/* Hero avatar dairesi */
+.avatar-hero {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, rgba(255, 166, 87, 0.14), rgba(88, 166, 255, 0.10));
+    border: 2px solid var(--border-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-baslik);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-on-dark);
+    box-shadow: var(--golge-lg);
+    transition: transform var(--gecis), border-color var(--gecis);
+}
+
+.avatar-hero:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-orange);
+}
+
+/* Butonlar */
+.btn-accent {
+    background-color: var(--accent-orange);
+    color: #14171f;
+    border: none;
+    font-weight: 600;
+    box-shadow: var(--golge-sm);
+}
+
+.btn-accent:hover {
+    background-color: var(--accent-orange-hover);
+    color: #14171f;
+    transform: translateY(-2px);
+    box-shadow: var(--golge-md);
+}
+
+.btn-outline-light {
+    border-width: 2px;
+    font-weight: 600;
+}
+
+.btn-outline-light:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--golge-md);
+}
+
+/* Sosyal medya ikonları (hero + footer'da ortak kullanılıyor) */
+.social-icons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+@media (min-width: 992px) {
+    .hero .social-icons {
+        justify-content: flex-start;
+    }
+}
+
+.social-icons a {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--bg-dark-soft);
+    border: 1px solid var(--border-dark);
+    color: var(--text-on-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.05rem;
+}
+
+.social-icons a:hover {
+    background-color: var(--accent-orange);
+    border-color: var(--accent-orange);
+    color: #14171f;
+    transform: translateY(-4px);
+}
+
+/* İstatistik şeridi */
+.stats-bar {
+    border-top: 1px solid var(--border-dark);
+    padding-top: 2.5rem;
+}
+
+.stat-number {
+    font-family: var(--font-baslik);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+}
+
+.stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-on-dark-muted);
+}
+
+/* Aşağı kaydırma göstergesi */
+.scroll-indicator {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-on-dark-muted);
+    font-size: 1.5rem;
+    animation: asagi-hareket 1.8s ease-in-out infinite;
+}
+
+.scroll-indicator:hover {
+    color: var(--accent-orange);
+}
+
+@keyframes asagi-hareket {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 8px); }
+}
+
+/* ================================================================
+   5) BÖLÜM BAŞLIKLARI (tüm section'larda ortak kullanılıyor)
+   ================================================================ */
+.section-eyebrow {
+    font-family: var(--font-mono);
+    text-align: center;
+    color: var(--accent-orange);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 3px;
+    background-color: var(--accent-orange);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.bg-light-section {
+    background-color: var(--bg-dark);
+}
+
+/* ================================================================
+   6) HAKKIMDA
+   ================================================================ */
+.avatar-placeholder {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background-color: var(--bg-dark);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-baslik);
+    font-size: 2rem;
+    font-weight: 700;
+    box-shadow: var(--golge-md);
+}
+
+/* ================================================================
+   7) YETENEK KARTLARI
+   ================================================================ */
+.skill-card {
+    padding: 1.75rem 1rem;
+    background: var(--bg-dark-soft);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--golge-sm);
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-orange);
+    box-shadow: var(--golge-lg);
+}
+
+.skill-icon {
+    font-size: 2.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.skill-card h5 {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+.skill-status {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-weight: 500;
+}
+
+.status-solid {
+    background-color: rgba(126, 231, 135, 0.15);
+    color: #1a7f37;
+}
+
+.status-learning {
+    background-color: rgba(255, 166, 87, 0.15);
+    color: #9a5b1f;
+}
+
+/* ================================================================
+   8) PROJE KARTLARI — "kod editörü penceresi" görünümü
+   ================================================================ */
+.project-card {
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--golge-sm);
+    overflow: hidden; /* editor-bar'ın köşeleri kartla birlikte yuvarlansın */
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--golge-lg);
+    border-color: var(--accent-orange);
+}
+
+/* Editör pencere başlığı: kırmızı/sarı/yeşil noktalar + dosya adı */
+.editor-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--bg-dark);
+    padding: 0.75rem 1rem;
+}
+
+.editor-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-red { background-color: #ff5f56; }
+.dot-yellow { background-color: #ffbd2e; }
+.dot-green { background-color: #27c93f; }
+
+.editor-filename {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-on-dark-muted);
+    margin-left: 0.75rem;
+}
+
+.project-card .card-title {
+    font-weight: 700;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+}
+
+.tech-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-dark);
+    color: var(--text-on-dark-muted);
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+}
+
+.tech-tag-soon {
+    color: var(--accent-orange-hover);
+    border-color: rgba(255, 166, 87, 0.4);
+}
+
+/* ================================================================
+   9) İLETİŞİM
+   ================================================================ */
+#iletisim .btn-accent {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* ================================================================
+   10) FOOTER
+   ================================================================ */
+.site-footer {
+    background-color: var(--bg-dark);
+    color: var(--text-on-dark-muted);
+    border-top: 1px solid var(--border-dark);
+}
+
+.footer-heading {
+    font-family: var(--font-baslik);
+    color: var(--text-on-dark);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer-text {
+    color: var(--text-on-dark-muted);
+    font-size: 0.95rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.65rem;
+    color: var(--text-on-dark-muted);
+    font-size: 0.95rem;
+}
+
+.footer-links a {
+    color: var(--text-on-dark-muted);
+    text-decoration: none;
+    position: relative;
+}
+
+.footer-links a:hover {
+    color: var(--accent-orange);
+    padding-left: 6px;
+}
+
+.footer-divider {
+    border-color: var(--border-dark);
+    margin: 0;
+    opacity: 1;
+}
+
+.site-footer input[type="email"] {
+    background-color: var(--bg-dark-soft);
+    border: 1px solid var(--border-dark);
+    color: var(--text-on-dark);
+}
+
+.site-footer input[type="email"]:focus {
+    background-color: var(--bg-dark-soft);
+    color: var(--text-on-dark);
+    border-color: var(--accent-orange);
+    box-shadow: var(--golge-glow);
+}
+
+.site-footer input[type="email"]::placeholder {
+    color: var(--text-on-dark-muted);
+}
+
+/* ================================================================
+   11) ERİŞİLEBİLİRLİK
+   Profesyonel bir site sadece "güzel" değil, HERKES için kullanılabilir
+   olmalı. Bu iki kural olmadan tasarım eksik sayılır.
+   ================================================================ */
+
+/* Klavye ile gezinen kullanıcılar için görünür odak (focus) çerçevesi.
+   Fare kullanan biri görmez ama Tab tuşuyla gezen biri için hayati. */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--accent-orange);
+    outline-offset: 2px;
+}
+
+/* Hareket hassasiyeti olan kullanıcılar için animasyonları kapatıyoruz */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}
