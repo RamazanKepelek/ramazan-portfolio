@@ -405,7 +405,7 @@ a, .btn, .nav-link, .card, .skill-card, .social-icons a {
 .skill-card {
     padding: 1.75rem 1rem;
     background: var(--bg-dark-soft);
-    border: 1px solid var(--border-light);
+    border: 1px solid red;)
     border-radius: var(--radius-md);
     box-shadow: var(--golge-sm);
 }
@@ -612,4 +612,8 @@ input:focus-visible {
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
     }
+}
+.test-border {
+    border: 2px solid red;
+    border-radius: 2px;
 }
