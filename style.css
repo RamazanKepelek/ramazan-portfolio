@@ -30,17 +30,17 @@
    ================================================================ */
 :root {
     /* --- Koyu zeminler (navbar, hero, footer) --- */
-    --bg-dark: #0d1117;          /* ana koyu zemin */
+    --bg-dark: #003049;          /* ana koyu zemin */
     --bg-dark-soft: #161b22;     /* biraz daha açık koyu zemin (kartlar, çizgiler) */
     --border-dark: #30363d;      /* koyu zeminde ince çizgiler */
 
     /* --- Açık zeminler (içerik bölümleri) --- */
-    --bg-light: #000000;
+    --bg-light: #EAE2B7;
     --bg-light-alt: #000000;
     --border-light: #000000;
 
     /* --- Vurgu renkleri (syntax-highlight ilhamlı) --- */
-    --accent-orange: #ffa657;    /* ana vurgu — butonlar, linkler, ikonlar */
+    --accent-orange: #F77F00;    /* ana vurgu — butonlar, linkler, ikonlar */
     --accent-orange-hover: #ff8a3d;
     --accent-green: #7ee787;     /* "başarılı / tamamlandı" anlamı taşıyan yerler */
     --accent-blue: #58a6ff;      /* ikincil linkler / bilgi */
@@ -52,7 +52,7 @@
     --text-on-light-muted: #8b949e;
 
     /* --- Tipografi --- */
-    --font-baslik: "Space Grotesk", "Segoe UI", sans-serif;
+    --font-baslik: "Trebuchet MS", sans-serif;
     --font-govde: "Inter", "Segoe UI", sans-serif;
     --font-mono: "JetBrains Mono", "Courier New", monospace;
 
@@ -195,8 +195,8 @@ a, .btn, .nav-link, .card, .skill-card, .social-icons a {
 .hero {
     margin-top: 72px;
     background:
-        radial-gradient(circle at 15% 20%, rgba(255, 166, 87, 0.10), transparent 40%),
-        radial-gradient(circle at 85% 75%, rgba(88, 166, 255, 0.10), transparent 40%),
+        radial-gradient(circle at 15% 20%, rgba(120, 0, 0, 0.18), transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(234, 226, 183, 0.08), transparent 40%),
         var(--bg-dark);
     color: var(--text-on-dark);
     position: relative;
@@ -363,7 +363,7 @@ a, .btn, .nav-link, .card, .skill-card, .social-icons a {
     text-align: center;
     margin-bottom: 2.5rem;
     font-weight: 700;
-    letter-spacing: -0.5px;
+    letter-spacing: 1px;
     position: relative;
 }
 
@@ -405,13 +405,12 @@ a, .btn, .nav-link, .card, .skill-card, .social-icons a {
 .skill-card {
     padding: 1.75rem 1rem;
     background: var(--bg-dark-soft);
-    border: 1px solid red;)
     border-radius: var(--radius-md);
     box-shadow: var(--golge-sm);
 }
 
 .skill-card:hover {
-    transform: translateY(-8px);
+    transform: scale(1.05);
     border-color: var(--accent-orange);
     box-shadow: var(--golge-lg);
 }
@@ -613,7 +612,4 @@ input:focus-visible {
         transition-duration: 0.001ms !important;
     }
 }
-.test-border {
-    border: 2px solid red;
-    border-radius: 2px;
-}
+

@@ -25,9 +25,12 @@ Bu görevi bitirdikten sonra kendine şu soruları sor:
 
 - `<section>` ile `<div>` arasındaki fark nedir? Neden bazı yerlerde
   `<section>`, bazı yerlerde `<div>` kullanılmış?
+<!--  <section> etiketinin anlamsal semantik bir anlam taşıması div etiketinin ise hiçbir anlamı olmayan genel bir gruplayıcı olması -->
 - `id="hakkimda"` gibi id'ler ne işe yarıyor? (İpucu: navbar'daki
   linklere bak: `href="#hakkimda"`)
+  <!--  Belirli bir öğreti css ile şekillendirmek javascript ile seçip yönetmek veya sayfa içi bağlantılarla o noktaya doğrudan gitmek için kullanılır -->
 - Bir `<a>` etiketinin `href` özelliği neden önemlidir?
+<!--  HTML <a> (bağlantı) etiketindeki href özelliği, kullanıcının bir bağlantıya tıkladığında gideceği hedef adresin (URL) veya kaynağın yerini belirler. -->
 
 ## Bitirme Kriteri
 

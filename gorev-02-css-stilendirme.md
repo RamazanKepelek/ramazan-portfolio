@@ -30,9 +30,13 @@ zevkine göre kişiselleştirmek.
 ## Kontrol Soruları
 
 - `var(--renk-vurgu)` yazdığında tarayıcı ne yapıyor?
+- var() CSS’te daha önce tanımlanmış olan değişkeni çağırır ve değerini kullanır.
 - `:hover` ne zaman devreye giriyor?
+-:hover, fare bir HTML öğesinin üzerine geldiğinde o öğeye tanımlanan CSS kurallarını devreye sokar.
 - `.section-title::after` satırını silersen ne olur? Dene ve gözlemle.
+-section-title::after kuralı mevcut CSS dosyasında bulunmadığı için silindiğinde görsel bir değişiklik olmadı.
 - `margin` ile `padding` arasındaki fark nedir? (`docs/kod-aciklamalari.md`'de
+margin elementin dışında padding içeriğin ve border arasında
   ipucu var, ama kendi cümlenle açıklamaya çalış.)
 
 ## Bitirme Kriteri
