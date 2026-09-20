@@ -1,71 +1,81 @@
-# 🎓 Kişisel Portfolyo Projesi — HTML / CSS / Bootstrap Öğrenme Serisi
+# 🎓 Kişisel Portfolyo Projesi — HTML / CSS / Bootstrap
 
-Bu proje, yazılım öğrenmeye yeni başlayan bir öğrencinin adım adım
-gerçek bir web sayfası yapmayı öğrenmesi için hazırlanmıştır.
+Bu proje, HTML, CSS ve Bootstrap kullanılarak geliştirilmiş kişisel portfolyo web sitesi çalışmasıdır.
 
 ## 🎯 Proje Hedefi
 
-Basit ama gerçekçi bir **kişisel portfolyo sitesi** yaparak şunları öğrenmek:
+Gerçek bir kişisel portfolyo sitesi oluşturarak aşağıdaki web geliştirme konularını uygulamak:
 
-1. HTML ile sayfa iskeleti kurmak
-2. CSS ile kendi görsel kimliğini oluşturmak
-3. Bootstrap ile hızlı ve responsive (mobil uyumlu) tasarım yapmak
+1. HTML ile sayfa yapısı oluşturmak
+2. CSS ile sayfa tasarımını özelleştirmek
+3. Bootstrap kullanarak responsive yapı oluşturmak
+4. Navbar, hero, yetenekler, projeler ve iletişim gibi bölümleri bir arada kullanmak
 
-## 📁 Klasör Yapısı
+## 📌 Proje Bölümleri
 
-```
-ogrenci-portfolyo-projesi/
+Web sitesi aşağıdaki bölümlerden oluşmaktadır:
+
+- Ana Sayfa
+- Hakkımda
+- Yetenekler
+- Projelerim
+- İletişim
+- Footer
+
+## 🛠️ Kullanılan Teknolojiler
+
+- **HTML5** — Sayfa yapısı ve içerik
+- **CSS3** — Tasarım ve stil düzenlemeleri
+- **Bootstrap 5.3** — Responsive yapı ve hazır bileşenler
+- **JavaScript** — Temel etkileşimler
+
+## 📸 Proje Görselleri
+
+### Ana Sayfa
+
+![Ana Sayfa](AnaSayfa.png)
+
+### Hakkımda
+
+![Hakkımda](Hakkımda.png)
+
+### Yetenekler
+
+![Yetenekler](Yetenekler.png)
+
+### Projelerim
+
+![Projelerim](Projelerim.png)
+
+### İletişim
+
+![İletişim](İletişim.png)
+
+### Footer
+
+![Footer](Footer.png)
+
+## 📁 Proje Yapısı
+
+```text
+ramazan-portfolio/
 │
-├── index.html              → 📄 Ana HTML dosyası
-├── css/
-│   └── style.css            → 🎨 Özel CSS dosyamız
-├── js/                       → ⚡ İlerleyen derslerde JavaScript buraya gelecek
+├── index.html
+├── style.css
+├── .gitignore
 │
 ├── docs/
-│   └── kod-aciklamalari.md  → 📘 Koddaki her bölümün satır satır açıklaması
+│   └── kod-aciklamalari.md
 │
-├── odevler/                  → 📝 Öğrenciye verilecek görevler (sırayla)
+├── odevler/
 │   ├── gorev-01-html-temelleri.md
 │   ├── gorev-02-css-stilendirme.md
 │   └── gorev-03-bootstrap.md
 │
 ├── code-review/
-│   └── review-checklist.md  → ✅ Öğretmenin/öğrencinin kod kontrol listesi
+│   └── review-checklist.md
 │
 ├── bonus/
-│   └── bonus-gorevler.md    → 🚀 Bitirdikten sonra denenecek ekstra görevler
+│   └── bonus-gorevler.md
 │
-└── README.md                 → Bu dosya
-```
-
-## 🚀 Nasıl Çalıştırılır?
-
-1. `index.html` dosyasını herhangi bir tarayıcıda çift tıklayarak aç.
-2. VS Code kullanıyorsan **Live Server** eklentisiyle açmak,
-   değişiklikleri anlık görmek için en rahatı.
-3. İnternet bağlantısı gerekli — çünkü Bootstrap, CDN üzerinden
-   (internet üzerinden) yükleniyor.
-
-## 🧭 Önerilen Öğrenme Sırası
-
-| Adım | Konu | Kaynak |
-|------|------|--------|
-| 1 | Sayfanın HTML iskeletini incele ve anla | `docs/kod-aciklamalari.md` |
-| 2 | Kendi bilgilerinle içerikleri değiştir | `odevler/gorev-01-html-temelleri.md` |
-| 3 | CSS ile renkleri, boşlukları özelleştir | `odevler/gorev-02-css-stilendirme.md` |
-| 4 | Bootstrap bileşenleri ekle/değiştir | `odevler/gorev-03-bootstrap.md` |
-| 5 | Kodunu kontrol listesine göre gözden geçir | `code-review/review-checklist.md` |
-| 6 | Kendini geliştirmek istersen | `bonus/bonus-gorevler.md` |
-
-## 🛠️ Kullanılan Teknolojiler
-
-- **HTML5** — sayfa iskeleti ve içerik
-- **CSS3** — özel stil (`css/style.css`)
-- **Bootstrap 5.3** — hazır bileşenler ve responsive grid sistemi (CDN üzerinden)
-
-## 📌 Not
-
-Bu proje sürekli büyüyecek şekilde tasarlandı. İlerleyen derslerde:
-- `js/` klasörüne JavaScript dosyaları eklenecek (form doğrulama, interaktif menü vb.)
-- Daha sonraki seviyede React ile aynı proje yeniden yapılabilir.
-# basic-level-pf
+└── README.md
