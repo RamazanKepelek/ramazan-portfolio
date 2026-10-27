@@ -4,8 +4,8 @@ Bu proje, HTML, CSS ve Bootstrap kullanılarak geliştirilmiş kişisel portfoly
 
 🔗 Proje Bağlantıları
 
-* Canlı Demo: Portfolyomu İncele
-* GitHub Repository: Kaynak Kodları
+* Canlı Demo: https://ramazan-portfolio-ten.vercel.app
+* GitHub Repository: https://github.com/RamazanKepelek/ramazan-portfolioı
 
 ## 🎯 Proje Hedefi
 
