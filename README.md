@@ -2,6 +2,11 @@
 
 Bu proje, HTML, CSS ve Bootstrap kullanılarak geliştirilmiş kişisel portfolyo web sitesi çalışmasıdır.
 
+🔗 Proje Bağlantıları
+
+* Canlı Demo: Portfolyomu İncele
+* GitHub Repository: Kaynak Kodları
+
 ## 🎯 Proje Hedefi
 
 Gerçek bir kişisel portfolyo sitesi oluşturarak aşağıdaki web geliştirme konularını uygulamak:
